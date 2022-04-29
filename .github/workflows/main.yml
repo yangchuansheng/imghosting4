@@ -2,9 +2,12 @@
 name: sync2gitee
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  schedule:
+    # Runs "at minute 55 past every hour" (see https://crontab.guru)
+    - cron: '55 0 * * *'
+  #push:
+  #  branches:
+  #    - main
 jobs:
   repo-sync:
     env:
